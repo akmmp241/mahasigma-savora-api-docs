@@ -43,12 +43,23 @@
           "200": {
             "description": "Login Success",
             "schema": {
-                "type": "object",
-                "properties": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
                     "token": {
-                    "type": "string"
+                      "type": "string"
                     }
+                  }
+                },
+                "errors": {
+                  "type": "null"
                 }
+              }
             }
           },
           "400": {
@@ -58,6 +69,9 @@
               "properties": {
                 "message": {
                   "type": "string"
+                },
+                "data": {
+                  "type": "null"
                 },
                 "errors": {
                   "type": "object",
@@ -74,12 +88,18 @@
           "401": {
             "description": "Unauthorized",
             "schema": {
-                "type": "object",
-                "properties": {
-                    "message": {
-                    "type": "string"
-                    }
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "null"
+                },
+                "errors": {
+                  "type": "null"
                 }
+              }
             }
           }
         }
