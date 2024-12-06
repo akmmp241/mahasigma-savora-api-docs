@@ -439,11 +439,22 @@
                       "id": {
                         "type": "integer"
                       },
-                      "name": {
-                        "type": "string"
-                      },
-                      "price": {
-                        "type": "number"
+                      "food": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "price": {
+                            "type": "number"
+                          },
+                          "image_url": {
+                            "type": "string"
+                          }
+                        }
                       }
                     }
                   }
@@ -589,11 +600,22 @@
                       "id": {
                         "type": "integer"
                       },
-                      "name": {
-                        "type": "string"
-                      },
-                      "price": {
-                        "type": "number"
+                      "food": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "price": {
+                            "type": "number"
+                          },
+                          "image_url": {
+                            "type": "string"
+                          }
+                        }
                       }
                     }
                   }
