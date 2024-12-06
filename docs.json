@@ -29,7 +29,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "username": {
+                "email": {
                   "type": "string"
                 },
                 "password": {
@@ -41,10 +41,46 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Login Success",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "token": {
+                    "type": "string"
+                    }
+                }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "errors": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
           },
           "401": {
-            "description": "Unauthorized"
+            "description": "Unauthorized",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                    "type": "string"
+                    }
+                }
+            }
           }
         }
       }
