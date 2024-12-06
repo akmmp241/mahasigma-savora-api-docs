@@ -12,8 +12,11 @@
   "paths": {
     "/api/v1/auth/login": {
       "post": {
+        "tags": [
+          "Authentication"
+        ],
         "summary": "Login",
-        "description": "Authenticate user and return token",
+        "description": "Authenticate user",
         "consumes": [
           "application/json"
         ],
@@ -63,7 +66,7 @@
             }
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Failed Validation",
             "schema": {
               "type": "object",
               "properties": {
@@ -86,7 +89,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized",
+            "description": "Wrong Credentials",
             "schema": {
               "type": "object",
               "properties": {
@@ -107,6 +110,9 @@
     },
     "/api/v1/auth/register": {
       "post": {
+        "tags": [
+          "Authentication"
+        ],
         "summary": "Register",
         "description": "Register a new user",
         "consumes": [
@@ -124,13 +130,10 @@
             "schema": {
               "type": "object",
               "properties": {
-                "username": {
+                "email": {
                   "type": "string"
                 },
                 "password": {
-                  "type": "string"
-                },
-                "email": {
                   "type": "string"
                 }
               }
@@ -139,18 +142,77 @@
         ],
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "User Created",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "errors": {
+                  "type": "null"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Credentials Already Taken",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "null"
+                },
+                "errors": {
+                  "type": "null"
+                }
+              }
+            }
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Failed Validation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "null"
+                },
+                "errors": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
     },
-    "/api/v1/auth/profile": {
+    "/api/v1/auth/user": {
       "get": {
-        "summary": "Get Profile",
-        "description": "Get user profile information",
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Get user",
+        "description": "Get user information",
         "produces": [
           "application/json"
         ],
@@ -164,16 +226,61 @@
         }
       }
     },
-    "/api/v1/food": {
+    "/api/v1/categories": {
       "get": {
-        "summary": "Get all food",
-        "description": "Get all food",
+        "tags": [
+          "Categories"
+        ],
+        "summary": "Get Categories",
+        "description": "Get all categories",
         "produces": [
           "application/json"
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "errors": {
+                  "type": "null"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "null"
+                },
+                "errors": {
+                  "type": "null"
+                }
+              }
+            }
           }
         }
       }
