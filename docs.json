@@ -232,6 +232,23 @@
           "Categories"
         ],
         "summary": "Get Categories",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Search term for filtering categories",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit the number of results",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
         "description": "Get all categories",
         "produces": [
           "application/json"
