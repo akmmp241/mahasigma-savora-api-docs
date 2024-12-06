@@ -514,7 +514,12 @@
                   "type": "string"
                 },
                 "data": {
-                  "type": "integer"
+                  "type": "object",
+                  "properties": {
+                    "total": {
+                      "type": "integer"
+                    }
+                  }
                 },
                 "errors": {
                   "type": "null"
