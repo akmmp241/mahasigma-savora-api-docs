@@ -397,6 +397,151 @@
         }
       }
     },
+    "/api/v1/foods/saved": {
+      "get": {
+        "tags": [
+          "Foods"
+        ],
+        "summary": "Get Saved Foods",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "SAVORA-TOKEN",
+            "description": "Token for authentication",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "description": "Get all saved foods",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "price": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                },
+                "errors": {
+                  "type": "null"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized | Missing Token | Invalid Token",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "null"
+                },
+                "errors": {
+                  "type": "null"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "null"
+                },
+                "errors": {
+                  "type": "null"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/foods/saved/count": {
+      "get": {
+        "tags": [
+          "Foods"
+        ],
+        "summary": "Get Saved Foods Count",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "SAVORA-TOKEN",
+            "description": "Token for authentication",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "description": "Get count of saved foods",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "integer"
+                },
+                "errors": {
+                  "type": "null"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized | Missing Token | Invalid Token",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "null"
+                },
+                "errors": {
+                  "type": "null"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/vendors": {
       "get": {
         "tags": [
