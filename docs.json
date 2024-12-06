@@ -335,6 +335,14 @@
             "required": false,
             "type": "integer",
             "format": "int32"
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "description": "Filter foods by category",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
           }
         ],
         "responses": {
@@ -356,6 +364,9 @@
                       },
                       "name": {
                         "type": "string"
+                      },
+                      "price": {
+                        "type": "number"
                       }
                     }
                   }
