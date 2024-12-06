@@ -5,7 +5,7 @@
     "description": "SeventhUP",
     "version": "1.0.0"
   },
-  "host": "app.savora.my.id",
+  "host": "https://app.savora.my.id",
   "schemes": [
     "https"
   ],
